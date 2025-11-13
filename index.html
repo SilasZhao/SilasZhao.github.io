@@ -1,39 +1,1059 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Silas Zhao's Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songyan (Silas) Zhao | ML Engineer & Full-Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        .avatar { width: 150px; border-radius: 50%; }
-        .intro-column {
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            max-width: 800px;
-            text-align: left;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .cv-button { 
-            display: inline-block; 
-            margin-top: 20px; 
-            padding: 10px 20px; 
-            background: #007bff; 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 5px; 
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --dark: #0f172a;
+            --dark-lighter: #1e293b;
+            --gray: #64748b;
+            --light: #f1f5f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            animation: float 20s infinite alternate;
+        }
+
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
+            bottom: -300px;
+            left: -300px;
+            animation: float 25s infinite alternate-reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100px, 100px) rotate(360deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(99, 102, 241, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--dark-lighter);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            transition: all 0.3s;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 3px solid rgba(99, 102, 241, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: var(--dark-lighter);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title h3 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-title p {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .experience-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-card li {
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-card li::before {
+            content: '▹';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--dark-lighter);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-category h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--dark-lighter);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+        }
+
+        .project-card h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-tag {
+            background: rgba(236, 72, 153, 0.1);
+            color: var(--secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--dark-lighter);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .education-card::before {
+            content: '🎓';
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+        }
+
+        .education-card h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .degree {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .info {
+            color: var(--gray);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--dark-lighter);
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-content p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            color: var(--gray);
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image img {
+                margin: 0 auto;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .education-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="avatar.png" alt="Silas Zhao's Avatar" class="avatar">
-        <h1>Welcome to My Page!</h1>
-        <div class="intro-column">
-            <p>Hi there! I’m Songyan (Silas) Zhao, a first-year master’s student in Computer Science at the University of California, Los Angeles. I completed my undergraduate at Carleton College, double major in Computer Science and Mathematics. My primary research interest is Natural Language Processing and creative generation. I’m also a professional Erhu Player. I have held personal recitals in The Central Conservatory of Music (中央音乐学院), China Conservatory of Music  (中国音乐学院), and Hakuju hall, Tokyo,Japan. 
-</p> <p>More things under construction:)</p>
-            <a href="SongyanZhao_2024_PhD_application_CV.pdf" class="cv-button" target="_blank">View My Resume</a>
+    <div class="bg-animation"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">SZ</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Hi, I'm <span class="gradient-text">Songyan Zhao</span></h1>
+                <p class="subtitle">Machine Learning Engineer & Full-Stack Developer</p>
+                <p>Greencard holder seeking ML Engineer roles. Full-stack developer with expertise in AI Infrastructure, machine learning, large language models, and human-AI interaction. First-author publications at top NLP conferences (NAACL 2025, EMNLP 2024).</p>
+                <div class="cta-buttons">
+                    <a href="SongyanZhao_2025_Full_time_AI (2).pdf" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/songyan-silas-zhao/" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/SilasZhao" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=pkEq9-wAAAAJ&hl=en" target="_blank" title="Google Scholar">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="mailto:zhaosongyan7@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="avatar.png" alt="Songyan Zhao">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2><span class="gradient-text">Work Experience</span></h2>
+                <p>Building cutting-edge AI systems and research</p>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card scroll-reveal">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Machine Learning Engineer Intern</h3>
+                            <p>XPOWER Manufacture Inc. | AI Infrastructure</p>
+                        </div>
+                        <div class="experience-date">June 2025 - Nov 2025</div>
+                    </div>
+                    <ul>
+                        <li>Built a unified vendor-recommendation platform with React frontend and Flask API gateway orchestrating Amazon Bedrock Agents, Bedrock Flows, and AWS Lambda for intelligent service provider discovery</li>
+                        <li>Built dual-path search architecture—internal RAG via Bedrock Knowledge Bases for certified partners and external discovery via SerpAPI (Google Maps/Yelp)—supporting parallel execution, automatic failover, and 504 timeout retries</li>
+                        <li>Automated infrastructure deployment including Bedrock Flow provisioning, IAM role configuration, and cross-account Lambda permissions</li>
+                        <li>Enhanced search accuracy with LLM-based parameter extraction (Claude Sonnet 4) that converts natural language requests into structured Lambda inputs</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card scroll-reveal">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Research Assistant</h3>
+                            <p>UCLA PlusLab & Queen Mary University of London</p>
+                        </div>
+                        <div class="experience-date">Sept 2023 - Present</div>
+                    </div>
+                    <ul>
+                        <li>Led the design of REFFLY, the first melody-constrained lyric revision model based on Llama 2, improving fluency and musicality by 25% over strong baselines. <strong>First-author paper accepted at NAACL 2025 (oral presentation)</strong></li>
+                        <li>Co-developed VDebugger, a critic-refiner system for visual program debugging. Improved error localization and correction accuracy by 3.2% across six visual reasoning benchmarks. <strong>Published at EMNLP Findings 2024</strong></li>
+                        <li>Built an AI-assisted lyric writing interface based on REFFLY, with FastAPI (backend) and Vue.js + Vite (frontend); paper under submission to UIST 2025</li>
+                        <li>Built a Variational Autoencoder (VAE) using PyTorch for symbolic music generation with interpretable latent control, <strong>published in Machine Intelligence Research (IF: 6.4)</strong></li>
+                    </ul>
+                </div>
+
+                <div class="experience-card scroll-reveal">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Software Developer Intern</h3>
+                            <p>Baidu International Department (Do-global)</p>
+                        </div>
+                        <div class="experience-date">June 2021 - Sept 2021</div>
+                    </div>
+                    <ul>
+                        <li>Implemented Rest API via Spring MVC including user registration/login, product listing and search, cart management, order placement, payment processing, and user profile updates</li>
+                        <li>Utilized Spring Data JDBC for PostgreSQL database integration, managing products, users, carts, and orders</li>
+                        <li>Implemented Spring Security for session-based authentication and authorization</li>
+                        <li>Developed the client side using ReactJS and Ant Design, enabling users to seamlessly add items to their shopping carts and place orders</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2><span class="gradient-text">Technical Skills</span></h2>
+                <p>Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category scroll-reveal">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++/STL</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category scroll-reveal">
+                    <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Angular</span>
+                    </div>
+                </div>
+
+                <div class="skill-category scroll-reveal">
+                    <h3><i class="fas fa-database"></i> Databases & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">Gradle</span>
+                    </div>
+                </div>
+
+                <div class="skill-category scroll-reveal">
+                    <h3><i class="fas fa-brain"></i> AI & ML Expertise</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Large Language Models</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">RAG Systems</span>
+                        <span class="skill-tag">Amazon Bedrock</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Recommendation Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2><span class="gradient-text">Research Publications</span></h2>
+                <p>AI/ML research with first-author publications at top venues</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card scroll-reveal">
+                    <h3>REFFLY - AI Lyric Generation</h3>
+                    <p>Led the design of the first melody-constrained lyric revision model based on Llama 2, improving fluency and musicality by 25% over strong baselines. <strong>First-author paper accepted at NAACL 2025 (oral presentation)</strong>. Built an AI-assisted lyric writing interface with FastAPI (backend) and Vue.js + Vite (frontend); paper under submission to UIST 2025, a top-tier HCI venue.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Llama 2</span>
+                        <span class="project-tag">NLP</span>
+                        <span class="project-tag">FastAPI</span>
+                        <span class="project-tag">Vue.js</span>
+                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">NAACL 2025</span>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <h3>VDebugger - Visual Program Debugging</h3>
+                    <p>Co-developed VDebugger, a critic-refiner system for visual program debugging. Improved error localization and correction accuracy by 3.2% across six visual reasoning benchmarks. <strong>Published at EMNLP Findings 2024</strong>.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">LLMs</span>
+                        <span class="project-tag">Visual Reasoning</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">NLP</span>
+                        <span class="project-tag">EMNLP 2024</span>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <h3>Symbolic Music Generation with VAE</h3>
+                    <p>Built a Variational Autoencoder (VAE) using PyTorch for symbolic music generation with interpretable latent control by regularizing latent vectors. <strong>Published in Machine Intelligence Research (Impact Factor: 6.4)</strong>.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">VAE</span>
+                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">Music Generation</span>
+                        <span class="project-tag">Deep Learning</span>
+                        <span class="project-tag">MIR</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2><span class="gradient-text">Featured Projects</span></h2>
+                <p>Software engineering and development projects</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card scroll-reveal">
+                    <h3>MiniSpotify</h3>
+                    <p>Designed a Kotlin Spotify favorite app by fully leveraging Android Jetpack Library and Hilt Dependency Injection. Implemented navigation using Jetpack Navigation component, built UI in Jetpack Compose following MVVM architecture, and integrated Google ExoPlayer for global music playback.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Kotlin</span>
+                        <span class="project-tag">Jetpack</span>
+                        <span class="project-tag">MVVM</span>
+                        <span class="project-tag">Room DB</span>
+                        <span class="project-tag">ExoPlayer</span>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <h3>SocialAI</h3>
+                    <p>Designed and implemented an AI-based social network web application using React JS. Integrated OpenAI's DALL-E 3 to assist users in creating and updating posts. Developed and deployed a scalable web service in Go on Google Cloud (App Engine) with ElasticSearch for search functionality.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Go</span>
+                        <span class="project-tag">OpenAI</span>
+                        <span class="project-tag">GCP</span>
+                        <span class="project-tag">ElasticSearch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2><span class="gradient-text">Education</span></h2>
+                <p>Academic background</p>
+            </div>
+            <div class="education-grid">
+                <div class="education-card scroll-reveal">
+                    <h3>University of California, Los Angeles</h3>
+                    <p class="degree">M.S. Computer Science</p>
+                    <div class="info">
+                        <span><i class="fas fa-calendar"></i> Sept 2023 - June 2025</span>
+                        <span><i class="fas fa-chart-line"></i> GPA: 3.88/4.0</span>
+                        <span><i class="fas fa-user-tie"></i> Advisor: Prof. Nanyun Peng</span>
+                    </div>
+                </div>
+
+                <div class="education-card scroll-reveal">
+                    <h3>Carleton College</h3>
+                    <p class="degree">B.A. Computer Science and Mathematics (Double-majors)</p>
+                    <div class="info">
+                        <span><i class="fas fa-calendar"></i> Sept 2019 - June 2023</span>
+                        <span><i class="fas fa-chart-line"></i> GPA: 3.86/4.0, Cum laude</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content scroll-reveal">
+                <h2><span class="gradient-text">Get In Touch</span></h2>
+                <p>I'm currently seeking Machine Learning Engineer roles starting from November 2025. Feel free to reach out!</p>
+                <div class="cta-buttons">
+                    <a href="mailto:zhaosongyan7@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://linkedin.com/in/songyan-silas-zhao/" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>zhaosongyan7@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1-507-581-1895</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Los Angeles, CA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Songyan (Silas) Zhao. Designed with passion for technology and innovation.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.8)';
+            }
+        });
+    </script>
 </body>
 </html>
