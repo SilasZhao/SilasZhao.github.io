@@ -166,13 +166,13 @@
 
         .hero-content .subtitle {
             font-size: 1.5rem;
-            color: var(--gray);
+            color: #cbd5e1;
             margin-bottom: 1.5rem;
         }
 
         .hero-content p {
             font-size: 1.1rem;
-            color: var(--gray);
+            color: #cbd5e1;
             margin-bottom: 2rem;
             line-height: 1.8;
         }
@@ -278,7 +278,7 @@
         }
 
         .section-header p {
-            color: var(--gray);
+            color: #cbd5e1;
             font-size: 1.1rem;
         }
 
@@ -335,7 +335,7 @@
         }
 
         .experience-date {
-            color: var(--gray);
+            color: #cbd5e1;
             font-size: 0.9rem;
         }
 
@@ -345,7 +345,7 @@
         }
 
         .experience-card li {
-            color: var(--gray);
+            color: #cbd5e1;
             margin-bottom: 0.75rem;
             padding-left: 1.5rem;
             position: relative;
@@ -454,7 +454,7 @@
         }
 
         .project-card p {
-            color: var(--gray);
+            color: #cbd5e1;
             margin-bottom: 1rem;
             line-height: 1.8;
         }
@@ -519,7 +519,7 @@
         }
 
         .education-card .info {
-            color: var(--gray);
+            color: #cbd5e1;
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
@@ -542,7 +542,7 @@
         }
 
         .contact-content p {
-            color: var(--gray);
+            color: #cbd5e1;
             font-size: 1.2rem;
             margin-bottom: 2rem;
         }
@@ -559,7 +559,7 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            color: var(--gray);
+            color: #cbd5e1;
             font-size: 1.1rem;
         }
 
@@ -572,7 +572,7 @@
         footer {
             padding: 2rem;
             text-align: center;
-            color: var(--gray);
+            color: #cbd5e1;
             border-top: 1px solid rgba(99, 102, 241, 0.1);
         }
 
@@ -704,7 +704,7 @@
             <div class="hero-content fade-in">
                 <h1>Hi, I'm <span class="gradient-text">Songyan Zhao</span></h1>
                 <p class="subtitle">Machine Learning Engineer & Full-Stack Developer</p>
-                <p>4+ years of ML/AI and 7+ years of full-stack experience. Expertise in LLMs, agentic AI, RAG systems, recommendation systems, and human-AI interaction. Skilled in Java (Spring Boot) and Python (Flask) for scalable distributed systems, RESTful APIs, and AWS services. First-author publications at top NLP conferences (NAACL 2025, EMNLP 2024).</p>
+                <p>4+ years of ML/AI experience skilled in LLMs, agentic AI, RAG systems, recommendation systems, human-AI interaction, and training/finetuning. 7+ years of full-stack experience skilled in Java (Spring Boot) and Python (Flask) for scalable distributed systems, RESTful APIs, and AWS services, with frontend expertise in React/React Native, Vue.js, and TypeScript. First-author publications at top NLP conferences (NAACL 2025, EMNLP 2024).  <strong style="color: var(--white); font-weight: 700;">Currently seeking full-time Machine Learning Engineer or Software Engineer roles starting November 2025. If there is a good fit, please <a href="#contact" style="color: var(--primary); text-decoration: underline;">reach out</a>!</strong> </p>
                 <div class="cta-buttons">
                     <a href="SongyanZhao_2025_Full_time_AI.pdf" class="btn btn-primary" target="_blank">
                         <i class="fas fa-download"></i> MLE Resume
@@ -748,20 +748,32 @@
                 <div class="experience-card scroll-reveal">
                     <div class="experience-header">
                         <div class="experience-title">
-                            <h3>Machine Learning Engineer Intern & Software Developer Intern</h3>
-                            <p>XPOWER Manufacture Inc. | AI Infrastructure & Full-Stack Development</p>
+                            <h3>Machine Learning Engineer Intern</h3>
+                            <p>XPOWER Manufacture Inc. | AI Infrastructure - Vendor-Recommendation Agent</p>
                         </div>
-                        <div class="experience-date">May 2025 - Nov 2025</div>
+                        <div class="experience-date">July 2025 - Present</div>
                     </div>
                     <ul>
-                        <li><strong>AI Infrastructure:</strong> Built a unified vendor-recommendation platform with React frontend and Flask API gateway orchestrating Amazon Bedrock Agents, Bedrock Flows, and AWS Lambda for intelligent service provider discovery</li>
+                        <li>Built a unified vendor-recommendation platform with React frontend and Flask API gateway orchestrating Amazon Bedrock Agents, Bedrock Flows, and AWS Lambda for intelligent service provider discovery</li>
                         <li>Built dual-path search architecture—internal RAG via Bedrock Knowledge Bases for certified partners and external discovery via SerpAPI (Google Maps/Yelp)—supporting parallel execution, automatic failover, and 504 timeout retries</li>
-                        <li>Automated infrastructure deployment including Bedrock Flow provisioning, IAM role configuration, and cross-account Lambda permissions, enabling secure execution of search, enrichment, and ranking pipeline</li>
+                        <li>Automated infrastructure deployment including Bedrock Flow provisioning, IAM role configuration, and cross-account Lambda permissions, enabling secure execution of 1, search; 2, enrichment; and 3, ranking pipeline</li>
                         <li>Enhanced search accuracy with LLM-based parameter extraction (Claude Sonnet 4) that converts natural language requests into structured Lambda inputs, complemented by trace logging to debug agent action-group invocations</li>
-                        <li><strong>Full-Stack Development:</strong> Built Spring Boot chat backend with tokenized STOMP-over-WebSocket, Redis/PostgreSQL, Twilio fallbacks, S3 uploads, and mandatory AI-assistant members supporting JSON card messages</li>
-                        <li>Shaped Project→Item→Room aggregates with role-scoped REST APIs and Redis-backed delay/archival jobs that keep unread counts, SLAs, and AI-triggered workflows accurate</li>
-                        <li>Delivered the Ignite-based Expo client with per-role project/item/chat flows that render Figma-accurate UIs, isolate vendor modules, and surface AI assistant activity inline</li>
-                        <li>Hardened the mobile data layer using OpenAPI-typed clients, Zustand chat state, and a SockJS/STOMP bridge that auto-resubscribes rooms and normalizes AI + human payloads with shared error toasts</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card scroll-reveal">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Software Developer Intern</h3>
+                            <p>Xpower Inc. | Spring Boot Based ChatRoom with AI-assistant</p>
+                        </div>
+                        <div class="experience-date">Apr 2025 - Aug 2025</div>
+                    </div>
+                    <ul>
+                        <li>Built a Spring Boot chat backend (WebSocket/STOMP, Redis/Postgres) with Twilio fallbacks, S3 uploads, and AI-assistant JSON card messages</li>
+                        <li>Designed the Project → Item → Room domain model and implemented role-scoped REST APIs with Redis-backed delay/archival jobs to maintain unread counts, SLAs, and AI-triggered workflows</li>
+                        <li>Delivered an Expo/React Native client with per-role project/item/chat flows and inline AI-assistant activity</li>
+                        <li>Improved mobile reliability via typed OpenAPI clients, Zustand chat state, and a resilient SockJS/STOMP bridge</li>
                     </ul>
                 </div>
 
@@ -820,26 +832,26 @@
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">TypeScript</span>
                         <span class="skill-tag">Go</span>
-                        <span class="skill-tag">Scheme</span>
                         <span class="skill-tag">HTML/CSS</span>
                     </div>
                 </div>
 
                 <div class="skill-category scroll-reveal">
-                    <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
+                    <h3><i class="fas fa-layer-group"></i> Frameworks & Tools</h3>
                     <div class="skill-tags">
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-Learn</span>
+                        <span class="skill-tag">AWS Lambda</span>
+                        <span class="skill-tag">AWS Bedrock</span>
+                        <span class="skill-tag">OpenAI API</span>
+                        <span class="skill-tag">Claude API</span>
                         <span class="skill-tag">Spring Boot</span>
                         <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Vue.js</span>
                         <span class="skill-tag">React</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Vue.js</span>
                         <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Angular</span>
-                        <span class="skill-tag">.NET</span>
-                        <span class="skill-tag">jQuery</span>
-                        <span class="skill-tag">Amazon AWS</span>
                     </div>
                 </div>
 
@@ -865,25 +877,13 @@
                     <div class="skill-tags">
                         <span class="skill-tag">Large Language Models</span>
                         <span class="skill-tag">Agentic AI</span>
-                        <span class="skill-tag">NLP</span>
                         <span class="skill-tag">RAG Systems</span>
-                        <span class="skill-tag">Amazon Bedrock</span>
+                        <span class="skill-tag">Training/Finetuning</span>
+                        <span class="skill-tag">NLP</span>
                         <span class="skill-tag">Machine Learning</span>
                         <span class="skill-tag">Deep Learning</span>
                         <span class="skill-tag">Recommendation Systems</span>
-                    </div>
-                </div>
-
-                <div class="skill-category scroll-reveal">
-                    <h3><i class="fas fa-cogs"></i> Architecture & Design</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">OOP/OOD</span>
-                        <span class="skill-tag">Design Patterns (MVC, Factory)</span>
-                        <span class="skill-tag">Distributed Systems</span>
-                        <span class="skill-tag">Microservices</span>
-                        <span class="skill-tag">RESTful APIs</span>
-                        <span class="skill-tag">WebSocket</span>
-                        <span class="skill-tag">MVVM</span>
+                        <span class="skill-tag">Human-AI Interaction</span>
                     </div>
                 </div>
             </div>
@@ -962,14 +962,15 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card scroll-reveal">
-                    <h3>AI-analyst</h3>
+                    <h3>AI-analyst: LangChain RAG Retrieval & QA System</h3>
                     <p>Created an interactive conversational UI leveraging React and Ant Design, enabling users to upload and interact with PDF, Excel documents in real-time. Implemented RESTful APIs via Express and Node.js and optimized for high-performance request handling. Utilized an in-memory vector store to cache generated embeddings for efficient retrieval. Integrated OpenAI's GPT-4o API and Langchain to develop an advanced AI agent for document analysis, loading, splitting, storage, retrieval, and output.</p>
                     <div class="project-tags">
                         <span class="project-tag">React</span>
                         <span class="project-tag">Node.js</span>
                         <span class="project-tag">Express</span>
                         <span class="project-tag">GPT-4o</span>
-                        <span class="project-tag">Langchain</span>
+                        <span class="project-tag">LangChain</span>
+                        <span class="project-tag">RAG</span>
                         <span class="project-tag">Vector Store</span>
                         <span class="project-tag">Ant Design</span>
                     </div>
@@ -1040,7 +1041,7 @@
         <div class="container">
             <div class="contact-content scroll-reveal">
                 <h2><span class="gradient-text">Get In Touch</span></h2>
-                <p>I'm currently seeking Machine Learning Engineer and Software Engineer roles starting November 2025. Feel free to reach out!</p>
+                <!-- <p>I'm currently seeking Machine Learning Engineer and Software Engineer roles starting November 2025. 7+ years of full-stack experience skilled in Java (Spring Boot) and Python (Flask) for scalable distributed systems, RESTful APIs, and AWS services, with frontend expertise in React/React Native, Vue.js, and TypeScript. Feel free to reach out!</p> -->
                 <div class="cta-buttons">
                     <a href="mailto:zhaosongyan7@gmail.com" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> Email Me
